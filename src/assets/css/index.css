@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+  body {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #main {
+    @apply py-4 px-4 space-y-8 mx-auto;
+  }
+}
+
