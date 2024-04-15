@@ -1,0 +1,8 @@
+{%- for bibble in collections.bibbles -%}
+<div>
+    <a href="{{bibble.url}}" class="bibble-btn img-link">
+        <img src="{{ bibble.data.icon }}" width="32px" />
+        <span>{{ bibble.data.title }}</span>
+    </a>
+</div>
+{%- endfor -%}

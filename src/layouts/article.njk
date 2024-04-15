@@ -1,0 +1,14 @@
+---
+layout: base
+---
+
+{% include "header.njk" %}
+
+<main id="main">
+    <article class="container prose">
+        <h1>{{ title }}</h1>
+        {{ content | safe }}
+    </article>
+</main>
+
+{% include "footer.njk" %}

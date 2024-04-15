@@ -1,27 +1,20 @@
-
-
 <header id="header" class="text-xl py-6 px-2">
-  <div class="container mx-auto flex justify-between gap-2 flex-col md:flex-row">
-    <div><a style="text-wrap: nowrap" href="/">{{ site.title }}</a></div>
-    <div>
-      {{ collections.all | eleventyNavigation | eleventyNavigationToHtml({
-
-        listElement: "ul",            
-        listItemElement: "li",        
-
-        listClass: "flex flex-wrap gap-x-4",
-        listItemClass: "",  
-
-        listItemHasChildrenClass: "has-submenu", 
-        anchorClass: "",  
-        
-        activeListItemClass: "active",              
-        activeAnchorClass: "active",        
-
-        activeKey: eleventyNavigation.key,
-        showExcerpt: false
-
-      }) | safe }}
+    <div
+        class="container mx-auto flex justify-between gap-2 flex-col md:flex-row"
+    >
+        <div>
+            <a class="img-link" href="/">
+                <img src="/assets/images/stardrop_small.png" width="36px" />
+                <span class="ml-2">{{ site.title }}</span>
+            </a>
+        </div>
+        <div>
+            {{ collections.all | eleventyNavigation | eleventyNavigationToHtml({
+            listElement: "ul", listItemElement: "li", listClass: "flex flex-wrap
+            gap-x-4", listItemClass: "", listItemHasChildrenClass:
+            "has-submenu", anchorClass: "", activeListItemClass: "active",
+            activeAnchorClass: "active", activeKey: eleventyNavigation.key,
+            showExcerpt: false }) | safe }}
+        </div>
     </div>
-  </div>
 </header>

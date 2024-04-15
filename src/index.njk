@@ -1,7 +1,29 @@
 ---
 meta:
-  title: Home page
-  description: this is the home page meta description.
-layout: base
+    title: Home page
+    description: this is the home page meta description.
+layout: home
+eleventyImport:
+    collections: ["bibbles"]
 ---
-<h1>Hello World!</h1>
+
+<div
+    class="container mx-auto my-4 flex flex-col flex-wrap content-center gap-4 px-4"
+>
+    <div>
+        {% image "src/assets/images/stardrop_logo.png", "stardrop logo", 1200 %}
+    </div>
+    <!--<div class="mx-auto px-4 pt-16 max-w-[600px]">-->
+    <div class="prose pt-16 max-w-[720px]">
+        <h1>Welcome to my Stardew Valley blog!</h1>
+        <p>
+            A few years ago i discovered this wonderful game on Steam. It
+            promised to be calming and cozy - it turned out to be the complete
+            opposite. If like me you now have a milion questions, look no
+            further: i can help you there!
+        </p>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        {% include "bibbles.njk" %}
+    </div>
+</div>
