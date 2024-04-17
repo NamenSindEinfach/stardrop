@@ -17,39 +17,53 @@ icon: /assets/images/star.png
 <p>
     Every Villager and character has friendship hearts that you can fill by
     gifting them items. However just as real people they will like certain
-    objects more than others, there are however certain items everybody Loves,
+    objects more than others, there are however certain items everybody loves,
     as well as some that everybody hates:
 </p>
 
-<!-- TODO: CSS cards / items icons -->
-<h3>Universal Loves</h3>
-<table>
-    <tr>
-        <td><strong>Items</strong></td>
-        <td><strong>Exceptions</strong></td>
-    </tr>
-    <tr>
-        <td>Golden Pumpkin</td>
-        <td>0</td>
-    </tr>
-    <tr>
-        <td>Magic Rock Candy</td>
-        <td>0</td>
-    </tr>
-    <tr>
-        <td>Pearl</td>
-        <td>0</td>
-    </tr>
-    <tr>
-        <td>Prismatic Shard</td>
-        <td>Haley</td>
-    </tr>
-    <tr>
-        <td>Rabits foot</td>
-        <td>Penny</td>
-    </tr>
-    <tr>
-        <td>stardrop tea</td>
-        <td>0</td>
-    </tr>
-</table>
+<div class="card bg-red-100/50 max-w-[400px]">
+    {% set haley %}
+        <img src="/assets/images/haley.png" width="24px">
+        <span class="ml-1">Haley</span>
+    {% endset %}
+    {% set penny %}
+        <img src="/assets/images/penny.png" width="24px">
+        <span class="ml-1">Penny</span>
+    {% endset %}
+    {% set universalLoves = [
+        [ "golden_pumpkin.png", "Golden Pumpkin", "&mdash;" ],
+        [ "magic_rock_candy.png", "Magic Rock Candy", "&mdash;" ],
+        [ "pearl.png", "Pearl", "&mdash;" ],
+        [ "prismatic_shard.png", "Prismatic Shard", haley ],
+        [ "rabbits_foot.png", "Rabbit's Foot", penny ],
+        [ "stardrop_tea.png", "Stardrop Tea", "&mdash;" ]
+    ] %}
+    <table>
+        <caption class="bold-xl-left mb-2">
+            Universal Loves
+        </caption>
+        <thead>
+            <tr>
+                <th>Items</th>
+                <th>Exceptions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for love in universalLoves %}
+            <tr>
+                <td>
+                    <div class="img-text">
+                        <img src="/assets/images/{{ love[0] | safe }}" width="24px" />
+                        <span class="ml-1">{{ love[1] | safe }}</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="img-text">
+                        {{ love[2] | safe }}
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
