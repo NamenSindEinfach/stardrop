@@ -9,19 +9,12 @@
         flex-direction: column;
     }
 
-    #main {
-        @apply py-4 px-4 space-y-8 mx-auto;
-    }
-
     .bibble-btn {
         margin-left: 0.25rem;
         margin-right: 0.25rem;
         border-style: solid;
         border-radius: 10px;
         padding: 0.25rem;
-        color: #374151;
-
-        @apply hover:bg-red-300;
     }
 
     .img-text {
@@ -49,6 +42,65 @@
             @apply prose-td:p-0 prose-th:p-0;
             @apply prose-thead:border-none prose-tr:border-none;
             @apply prose-th:text-left;
+        }
+    }
+
+    /* drop down menu */
+    .menu {
+        float: left;
+        overflow: hidden;
+    }
+
+    /* hide checkbox */
+    #hamburger {
+        position: absolute;
+        opacity: 0;
+        right: 0;
+    }
+
+    /* toggle menu */
+    #hamburger:checked ~ .menu-content {
+        display: block;
+    }
+
+    /* menu content (hidden by default) */
+    .menu-content {
+        display: none;
+        position: absolute;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        left: 0;
+        right: 0;
+        z-index: 1;
+
+        a {
+            float: none;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+    }
+
+    @media screen(sm) {
+        .menu {
+            position: static;
+        }
+
+        .menu-content {
+            left: auto;
+            right: auto;
+            min-width: 180px;
+            border-radius: 10px;
+        }
+
+        .menu-content a:first-child:hover {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .menu-content a:last-child:hover {
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
         }
     }
 }
