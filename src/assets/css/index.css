@@ -25,11 +25,11 @@
     .bold-xl-left {
         @apply font-bold text-xl text-left;
     }
-    
+
     .card {
-        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         padding: 1rem;
+        @apply rounded-xl;
 
         table {
             @apply my-0 table-auto;
@@ -61,7 +61,7 @@
     .menu-content {
         display: none;
         position: absolute;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         left: 0;
         right: 0;
         z-index: 1;
@@ -84,17 +84,16 @@
             left: auto;
             right: auto;
             min-width: 180px;
-            border-radius: 10px;
+
+            @apply rounded-xl;
         }
 
         .menu-content a:first-child:hover {
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
+            @apply rounded-t-xl;
         }
 
         .menu-content a:last-child:hover {
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
+            @apply rounded-b-xl;
         }
     }
 }
