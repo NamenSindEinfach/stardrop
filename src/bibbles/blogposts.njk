@@ -3,4 +3,32 @@ title: Blog Posts
 layout: article
 order: 4
 icon: /assets/images/text.png
+
+eleventyImport:
+    collections: ["posts"]
 ---
+
+<div class="grid grid-cols-1 max-w-[320px] sm:grid-cols-2 sm:min-w-[600px] gap-8">
+  {% for post in collections.posts %}
+    <div class="card flex flex-col bg-red-100/50">
+      <div class="grow">
+        <p class="font-bold text-xl m-0">
+          <a href="{{ post.url }}" class="no-underline">
+            {{ post.data.title | safe }}
+          </a>
+        </p>
+        <time datetime="{{ post.date | htmlDateString }}" class="text-xs">
+          {{ post.date | readableDate() }}
+        </time>
+        <p class="mb-2 text-justify">
+          <i>{% excerpt post %}</i>
+        </p>
+      </div>
+      <div class="flex flex-row place-self-end justify-end">
+        <a href="{{ post.url }}" class="text-xs">more</a>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+
