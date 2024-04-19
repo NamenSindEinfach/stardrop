@@ -9,22 +9,16 @@
         flex-direction: column;
     }
 
-    .bibble-btn {
-        margin-left: 0.25rem;
-        margin-right: 0.25rem;
-        border-style: solid;
-        border-radius: 10px;
-        padding: 0.25rem;
-    }
-
     .img-text {
-        vertical-align: sub;
-        vertical-align: -webkit-baseline-middle;
-        vertical-align: -moz-middle-with-baseline;
+        display: inline-block;
 
         img {
             margin: 0;
-            float: left;
+            display: inline-block;
+        }
+
+        span {
+            vertical-align: middle;
         }
     }
 

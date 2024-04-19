@@ -1,8 +1,10 @@
 {%- for bibble in collections.bibbles -%}
-<div>
-    <a href="{{bibble.url}}" class="bibble-btn img-text hover:bg-red-300">
-        <img src="{{ bibble.data.icon }}" width="32px" />
-        <span>{{ bibble.data.title }}</span>
+<div class="flex flex-row justify-start">
+    <a href="{{bibble.url}}">
+        <div class="rounded-full p-2 hover:bg-red-300 img-text">
+            <img src="{{ bibble.data.icon }}" width="32px" />
+            <span class="ml-1 mr-1">{{ bibble.data.title }}</span>
+        </div>
     </a>
 </div>
 {%- endfor -%}
