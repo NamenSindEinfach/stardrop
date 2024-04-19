@@ -1,5 +1,5 @@
 ---
-title: Essentials
+title: Info
 layout: article
 order: 2
 icon: /assets/images/star.png
@@ -22,14 +22,17 @@ icon: /assets/images/star.png
 </p>
 
 <div class="card bg-red-100/50 max-w-[400px]">
+    <!-- prettier-ignore -->
     {% set haley %}
-        <img src="/assets/images/haley.png" width="24px">
-        <span class="ml-1">Haley</span>
+    <img src="/assets/images/haley.png" width="24px" />
+    <span class="ml-1">Haley</span>
     {% endset %}
+    <!-- prettier-ignore -->
     {% set penny %}
-        <img src="/assets/images/penny.png" width="24px">
-        <span class="ml-1">Penny</span>
+    <img src="/assets/images/penny.png" width="24px" />
+    <span class="ml-1">Penny</span>
     {% endset %}
+    <!-- prettier-ignore -->
     {% set universalLoves = [
         [ "golden_pumpkin.png", "Golden Pumpkin", "&mdash;" ],
         [ "magic_rock_candy.png", "Magic Rock Candy", "&mdash;" ],
@@ -49,21 +52,28 @@ icon: /assets/images/star.png
             </tr>
         </thead>
         <tbody>
-        {% for love in universalLoves %}
+            {% for love in universalLoves %}
             <tr>
                 <td>
                     <div class="img-text">
-                        <img src="/assets/images/{{ love[0] | safe }}" width="24px" />
+                        <img
+                            src="/assets/images/{{ love[0] | safe }}"
+                            width="24px"
+                        />
                         <span class="ml-1">{{ love[1] | safe }}</span>
                     </div>
                 </td>
                 <td>
-                    <div class="img-text">
-                        {{ love[2] | safe }}
-                    </div>
+                    <div class="img-text">{{ love[2] | safe }}</div>
                 </td>
             </tr>
-        {% endfor %}
+            {% endfor %}
         </tbody>
     </table>
 </div>
+<p>
+    The list of <strong>Universally Hated</strong> items is a lot longer but as
+    a rule of thumb: most resources are hated or at least disliked, the same
+    applies to monster loot or artifacts. For the full list you can look on the
+    <a href="https://stardewvalleywiki.com/Friendship">Wiki</a>
+</p>
