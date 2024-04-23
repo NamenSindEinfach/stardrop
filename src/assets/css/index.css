@@ -9,6 +9,14 @@
         flex-direction: column;
     }
 
+    .text-prose {
+        color: theme(colors.gray.900);
+    }
+
+    .fill-prose {
+        color: theme(colors.gray.900);
+    }
+
     .img-text {
         display: inline-block;
 
