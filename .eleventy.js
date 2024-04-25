@@ -3,7 +3,7 @@ const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const EleventyVitePlugin = require("@11ty/eleventy-plugin-vite");
 const Image = require("@11ty/eleventy-img");
 const { DateTime } = require("luxon");
-const excerpts = require('excerpts');
+const excerpts = require("excerpts");
 require("dotenv").config();
 
 const baseUrl = process.env.BASE_URL || "https://stardrop.pages.dev";
@@ -20,10 +20,10 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addGlobalData("site", globalSiteData);
 
-	eleventyConfig.setFrontMatterParsingOptions({
-		excerpt: true,
-		excerpt_separator: "---",
-	});
+  eleventyConfig.setFrontMatterParsingOptions({
+    excerpt: true,
+    excerpt_separator: "---",
+  });
 
   /* --- PASSTHROUGHS --- */
 
@@ -71,9 +71,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
   // Excerpt
-  eleventyConfig.addShortcode("excerpt", function(article) {
+  eleventyConfig.addShortcode("excerpt", function (article) {
     const content = article.templateContent;
-    return excerpts(content, {words: 25});
+    return excerpts(content, { words: 25 });
   });
 
   /* --- COLLECTIONS --- */
@@ -87,20 +87,22 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addCollection("posts", function (collection) {
-    return collection.getFilteredByGlob("./src/posts/*.njk");
+    return collection.getFilteredByGlob("./src/posts/*.njk").reverse();
   });
 
   /* --- FILTERS --- */
 
-	eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {
-		// Formatting tokens for Luxon: https://moment.github.io/luxon/#/formatting?id=table-of-tokens
-		return DateTime.fromJSDate(dateObj, { zone: zone || "utc" }).toFormat(format || "dd LLLL yyyy");
-	});
+  eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {
+    // Formatting tokens for Luxon: https://moment.github.io/luxon/#/formatting?id=table-of-tokens
+    return DateTime.fromJSDate(dateObj, { zone: zone || "utc" }).toFormat(
+      format || "dd LLLL yyyy",
+    );
+  });
 
-	eleventyConfig.addFilter('htmlDateString', (dateObj) => {
-		// dateObj input: https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
-		return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
-	});
+  eleventyConfig.addFilter("htmlDateString", (dateObj) => {
+    // dateObj input: https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
+    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-LL-dd");
+  });
 
   // Custom Random Helper Filter (useful for ID attributes)
   eleventyConfig.addFilter("generateRandomIdString", function (prefix) {
